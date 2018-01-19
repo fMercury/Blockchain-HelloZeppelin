@@ -15,8 +15,7 @@ import './Presale.sol';
 
 contract FriendTokenPresale is Presale {
 
-  function FriendTokenPresale(uint256 _weiRaised, uint256 _maxCap, address _wallet, uint256 _rate) public {
-    //super.Presale(_weiRaised, _maxCap, _wallet)
-  }
+  function FriendTokenPresale(address _wallet, uint256 _weiRaised, uint256 _maxCap, uint256 _startTimestamp, uint256 _endTimestamp, uint256 _rate) public {
+    }
 
 }

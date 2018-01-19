@@ -16,6 +16,20 @@
       "type": "function"
     },
     {
+      "constant": true,
+      "inputs": [],
+      "name": "rate",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "constant": false,
       "inputs": [],
       "name": "unpause",
@@ -127,6 +141,34 @@
       "type": "function"
     },
     {
+      "constant": true,
+      "inputs": [],
+      "name": "endTimestamp",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "startTimestamp",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "constant": false,
       "inputs": [
         {
@@ -143,6 +185,10 @@
     {
       "inputs": [
         {
+          "name": "_wallet",
+          "type": "address"
+        },
+        {
           "name": "_weiRaised",
           "type": "uint256"
         },
@@ -151,8 +197,12 @@
           "type": "uint256"
         },
         {
-          "name": "_wallet",
-          "type": "address"
+          "name": "_startTimestamp",
+          "type": "uint256"
+        },
+        {
+          "name": "_endTimestamp",
+          "type": "uint256"
         },
         {
           "name": "_rate",
@@ -167,6 +217,28 @@
       "payable": true,
       "stateMutability": "payable",
       "type": "fallback"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "weiAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "rate",
+          "type": "uint256"
+        }
+      ],
+      "name": "TokenPresalePurchase",
+      "type": "event"
     },
     {
       "anonymous": false,
@@ -202,14 +274,14 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.15;\n\nimport './FriendToken.sol';\nimport './Presale.sol';\n\n/**\n * @title FriendTokenPresale\n * @dev Contract to raise a max amount of Ether before ICO/TGE\n *\n * The token rate is 20000 FriendToken per Ether, if you send 10 Ethers you will\n * receive 200000 Lifs after TGE ends, but in the presale the rate is for this\n * reason the rate in this stage is saved.\n * The contract is pausable and it starts in paused state\n  */\n\ncontract FriendTokenPresale is Presale {\n\n  function FriendTokenPresale(uint256 _weiRaised, uint256 _maxCap, address _wallet, uint256 _rate) public {\n    //super.Presale(_weiRaised, _maxCap, _wallet)\n  }\n\n}\n",
+  "source": "pragma solidity ^0.4.15;\n\nimport './FriendToken.sol';\nimport './Presale.sol';\n\n/**\n * @title FriendTokenPresale\n * @dev Contract to raise a max amount of Ether before ICO/TGE\n *\n * The token rate is 20000 FriendToken per Ether, if you send 10 Ethers you will\n * receive 200000 Lifs after TGE ends, but in the presale the rate is for this\n * reason the rate in this stage is saved.\n * The contract is pausable and it starts in paused state\n  */\n\ncontract FriendTokenPresale is Presale {\n\n  function FriendTokenPresale(address _wallet, uint256 _weiRaised, uint256 _maxCap, uint256 _startTimestamp, uint256 _endTimestamp, uint256 _rate) public {\n    }\n\n}\n",
   "sourcePath": "/home/frank/Blockchain/myzeppelin/contracts/FriendTokenPresale.sol",
   "ast": {
     "attributes": {
       "absolutePath": "/home/frank/Blockchain/myzeppelin/contracts/FriendTokenPresale.sol",
       "exportedSymbols": {
         "FriendTokenPresale": [
-          33
+          37
         ]
       }
     },
@@ -232,7 +304,7 @@
           "SourceUnit": 15,
           "absolutePath": "/home/frank/Blockchain/myzeppelin/contracts/FriendToken.sol",
           "file": "./FriendToken.sol",
-          "scope": 34,
+          "scope": 38,
           "symbolAliases": [
             null
           ],
@@ -244,10 +316,10 @@
       },
       {
         "attributes": {
-          "SourceUnit": 142,
+          "SourceUnit": 218,
           "absolutePath": "/home/frank/Blockchain/myzeppelin/contracts/Presale.sol",
           "file": "./Presale.sol",
-          "scope": 34,
+          "scope": 38,
           "symbolAliases": [
             null
           ],
@@ -260,21 +332,21 @@
       {
         "attributes": {
           "contractDependencies": [
-            141,
-            201,
-            355
+            217,
+            277,
+            431
           ],
           "contractKind": "contract",
           "documentation": "@title FriendTokenPresale\n@dev Contract to raise a max amount of Ether before ICO/TGE\n * The token rate is 20000 FriendToken per Ether, if you send 10 Ethers you will\nreceive 200000 Lifs after TGE ends, but in the presale the rate is for this\nreason the rate in this stage is saved.\nThe contract is pausable and it starts in paused state",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            33,
-            141,
-            201,
-            355
+            37,
+            217,
+            277,
+            431
           ],
           "name": "FriendTokenPresale",
-          "scope": 34
+          "scope": 38
         },
         "children": [
           {
@@ -288,7 +360,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "Presale",
-                  "referencedDeclaration": 141,
+                  "referencedDeclaration": 217,
                   "type": "contract Presale"
                 },
                 "id": 19,
@@ -310,7 +382,7 @@
               ],
               "name": "FriendTokenPresale",
               "payable": false,
-              "scope": 33,
+              "scope": 37,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -321,19 +393,19 @@
                   {
                     "attributes": {
                       "constant": false,
-                      "name": "_weiRaised",
-                      "scope": 32,
+                      "name": "_wallet",
+                      "scope": 36,
                       "stateVariable": false,
                       "storageLocation": "default",
-                      "type": "uint256",
+                      "type": "address",
                       "value": null,
                       "visibility": "internal"
                     },
                     "children": [
                       {
                         "attributes": {
-                          "name": "uint256",
-                          "type": "uint256"
+                          "name": "address",
+                          "type": "address"
                         },
                         "id": 21,
                         "name": "ElementaryTypeName",
@@ -342,13 +414,13 @@
                     ],
                     "id": 22,
                     "name": "VariableDeclaration",
-                    "src": "517:18:1"
+                    "src": "517:15:1"
                   },
                   {
                     "attributes": {
                       "constant": false,
-                      "name": "_maxCap",
-                      "scope": 32,
+                      "name": "_weiRaised",
+                      "scope": 36,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -363,29 +435,29 @@
                         },
                         "id": 23,
                         "name": "ElementaryTypeName",
-                        "src": "537:7:1"
+                        "src": "534:7:1"
                       }
                     ],
                     "id": 24,
                     "name": "VariableDeclaration",
-                    "src": "537:15:1"
+                    "src": "534:18:1"
                   },
                   {
                     "attributes": {
                       "constant": false,
-                      "name": "_wallet",
-                      "scope": 32,
+                      "name": "_maxCap",
+                      "scope": 36,
                       "stateVariable": false,
                       "storageLocation": "default",
-                      "type": "address",
+                      "type": "uint256",
                       "value": null,
                       "visibility": "internal"
                     },
                     "children": [
                       {
                         "attributes": {
-                          "name": "address",
-                          "type": "address"
+                          "name": "uint256",
+                          "type": "uint256"
                         },
                         "id": 25,
                         "name": "ElementaryTypeName",
@@ -399,8 +471,8 @@
                   {
                     "attributes": {
                       "constant": false,
-                      "name": "_rate",
-                      "scope": 32,
+                      "name": "_startTimestamp",
+                      "scope": 36,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -420,12 +492,64 @@
                     ],
                     "id": 28,
                     "name": "VariableDeclaration",
-                    "src": "571:13:1"
+                    "src": "571:23:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_endTimestamp",
+                      "scope": 36,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 29,
+                        "name": "ElementaryTypeName",
+                        "src": "596:7:1"
+                      }
+                    ],
+                    "id": 30,
+                    "name": "VariableDeclaration",
+                    "src": "596:21:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_rate",
+                      "scope": 36,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 31,
+                        "name": "ElementaryTypeName",
+                        "src": "619:7:1"
+                      }
+                    ],
+                    "id": 32,
+                    "name": "VariableDeclaration",
+                    "src": "619:13:1"
                   }
                 ],
-                "id": 29,
+                "id": 33,
                 "name": "ParameterList",
-                "src": "516:69:1"
+                "src": "516:117:1"
               },
               {
                 "attributes": {
@@ -434,9 +558,9 @@
                   ]
                 },
                 "children": [],
-                "id": 30,
+                "id": 34,
                 "name": "ParameterList",
-                "src": "593:0:1"
+                "src": "641:0:1"
               },
               {
                 "attributes": {
@@ -445,22 +569,22 @@
                   ]
                 },
                 "children": [],
-                "id": 31,
+                "id": 35,
                 "name": "Block",
-                "src": "593:55:1"
+                "src": "641:7:1"
               }
             ],
-            "id": 32,
+            "id": 36,
             "name": "FunctionDefinition",
             "src": "489:159:1"
           }
         ],
-        "id": 33,
+        "id": 37,
         "name": "ContractDefinition",
         "src": "445:206:1"
       }
     ],
-    "id": 34,
+    "id": 38,
     "name": "SourceUnit",
     "src": "0:652:1"
   },
@@ -470,5 +594,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-19T00:36:46.358Z"
+  "updatedAt": "2018-01-19T18:47:26.714Z"
 }

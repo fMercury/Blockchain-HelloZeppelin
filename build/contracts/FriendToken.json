@@ -413,7 +413,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 609,
+          "SourceUnit": 685,
           "absolutePath": "zeppelin-solidity/contracts/token/MintableToken.sol",
           "file": "zeppelin-solidity/contracts/token/MintableToken.sol",
           "scope": 15,
@@ -429,24 +429,24 @@
       {
         "attributes": {
           "contractDependencies": [
-            355,
-            441,
-            484,
-            513,
-            608,
-            854
+            431,
+            517,
+            560,
+            589,
+            684,
+            930
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
             14,
-            608,
-            355,
-            854,
-            441,
-            484,
-            513
+            684,
+            431,
+            930,
+            517,
+            560,
+            589
           ],
           "name": "FriendToken",
           "scope": 15
@@ -463,7 +463,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "MintableToken",
-                  "referencedDeclaration": 608,
+                  "referencedDeclaration": 684,
                   "type": "contract MintableToken"
                 },
                 "id": 3,
@@ -617,5 +617,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-19T00:36:46.358Z"
+  "updatedAt": "2018-01-19T18:47:26.714Z"
 }
